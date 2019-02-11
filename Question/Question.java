@@ -22,8 +22,8 @@ public class Question
    */
    public Question( String question ) 
    {
-      this.text = question;
-      this.answer = "";
+      this.setAnswer("");
+      this.setText(question);
    }
 
    /**
