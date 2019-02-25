@@ -1,7 +1,12 @@
+/**
+      A utility class that computes the average of the measures of the 
+      given objects.
+      (it knows nothing about BankAccount or Country objects!)
+*/
 public class Data
 {
    /**
-      Computes the average of the measures of the given objects.
+      computes the average of the measures of the given objects.      
       @param objects an array of Measurable objects
       @return the average of the measures
    */

@@ -1,5 +1,8 @@
 /**
    Describes any class whose objects can be measured.
+   
+   Can measure objects, whether they are a BankAccount, a Country, 
+     or any other measuarable object.
 */
 public interface Measurable
 {
