@@ -19,17 +19,30 @@ public class ButtonViewer
     private JFrame frame;  // container window holds all other GUI components
     private JPanel panel; // another container to place components on to
     
-    private JButton button; // button object
+    private JButton buttonA; // button object
+    private JButton buttonB;
+    private JLabel label;
+    
+    private int clickCountA;
+    private int clickCountB;
     
     
     public ButtonViewer()
     {
+        this.clickCountA = 0;
+        this.clickCountB = 0;
+        
         // 1. define and setup the UI components
         this.frame = new JFrame();
         this.panel = new JPanel();  // will resize to fit components, unlike the frame
         
-        this.button = new JButton("click me");
-        this.panel.add(this.button);
+        this.buttonA = new JButton("click A");
+        this.buttonB = new JButton("click B");
+        this.label = new JLabel("A: 0; B: 0");
+        this.panel.add(this.label);
+        
+        this.panel.add(this.buttonA);
+        this.panel.add(this.buttonB);
         
         this.frame.add(this.panel);
         
@@ -37,6 +50,26 @@ public class ButtonViewer
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);  // starts application; doesn't return until 
                                         // application is closed
+                                        
+        // 2. create listener object  
+        ClickListener listener = new ClickListener();  // for use with the nested class
+        /*
+         * anonymous class - created on the fly and tied to one instance
+         * 
+        ActionListener listener = new ActionListener()
+        {
+                public void actionPerformed(ActionEvent event)
+                {
+                    label.setText("Button " + event.getActionCommand() + 
+                            " was clicked");
+                }
+        };
+        */
+        
+        // 3. register listener object with component that generates events
+        this.buttonA.addActionListener(listener);
+        this.buttonB.addActionListener(listener);
+        
     }
     
     public static void main(String[] args)
@@ -44,8 +77,24 @@ public class ButtonViewer
         ButtonViewer viewer = new ButtonViewer();
     }
     
-    
-    
+    // nested class - A class enclosed within another class.  
+    //                  Useful for granting a listener access to instance variables.
+    public class ClickListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            if(event.getSource() == buttonA) // careful to not use the "this" keyword in a nested class
+            {
+                clickCountA++;
+            }
+            else if(event.getSource() == buttonB)
+            {
+                clickCountB++;
+            }
+            
+            label.setText("A: " + clickCountA + "; B: " + clickCountB);
+        }
+    }
     
     
     
