@@ -16,14 +16,14 @@ public class ButtonViewer
     private final int FRAME_WIDTH = 400;
     private final int FRAME_HEIGHT = 100;
     
-    private JFrame frame;  // container window holds all other GUI components
-    private JPanel panel; // another container to place components on to
+    private JFrame frame;       // container window holds all other GUI components
+    private JPanel panel;       // another container to place components on to
     
-    private JButton buttonA; // button object
+    private JButton buttonA;    // button object
     private JButton buttonB;
     private JLabel label;
     
-    private int clickCountA;
+    private int clickCountA;  // state machines
     private int clickCountB;
     
     
@@ -49,10 +49,10 @@ public class ButtonViewer
         this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);  // starts application; doesn't return until 
-                                        // application is closed
+                                      //   application is closed
                                         
         // 2. create listener object  
-        ClickListener listener = new ClickListener();  // for use with the nested class
+        ClickListener listener = new ClickListener();  // object created from the nested class
         /*
          * anonymous class - created on the fly and tied to one instance
          * 
