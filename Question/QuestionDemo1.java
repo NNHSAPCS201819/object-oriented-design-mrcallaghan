@@ -20,7 +20,7 @@ public class QuestionDemo1
       String response = in.nextLine();
       System.out.println(q.checkAnswer(response));
       
-      ChoiceQuestion q2 = new ChoiceQuestion("Who founded Apple?");
+      ChoiceQuestion q2 = new ChoiceQuestion("Who founded Apple? ");
       q2.addChoice("Bill Gates", false);
       q2.addChoice("Steve Jobs", true);
       
