@@ -34,6 +34,7 @@ public class Exam
             System.out.print("Your answer: ");
             String response = in.nextLine();
             System.out.println(q.checkAnswer(response));
+            
         }
     }
 }

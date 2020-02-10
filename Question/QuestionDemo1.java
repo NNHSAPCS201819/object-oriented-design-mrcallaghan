@@ -13,16 +13,17 @@ public class QuestionDemo1
       
       //FillInQuestion newQ = (FillInQuestion) q;
       //q.setText();
-      q.setAnswer("James Gosling");     
+      //q.setAnswer("James Gosling");     
 
-      System.out.println( q );
-      System.out.print("Your answer: ");
-      String response = in.nextLine();
-      System.out.println(q.checkAnswer(response));
+      //System.out.println( q );
+      //System.out.print("Your answer: ");
+      //String response = in.nextLine();
+      //System.out.println(q.checkAnswer(response));
       
       ChoiceQuestion q2 = new ChoiceQuestion("Who founded Apple? ");
       q2.addChoice("Bill Gates", false);
       q2.addChoice("Steve Jobs", true);
+      
       
       Exam exam = new Exam();
       exam.addQuestion(q);
